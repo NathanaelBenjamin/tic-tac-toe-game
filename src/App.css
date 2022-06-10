@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --dark: #000000;
+    --gray: #333333;
+    --dark-blue: #2c3e50; 
+    --light-blue: #ecf0f1; 
+    --font-color: #f5f5f5;
+    --pink: #16a085;
+    --primary-font: 'Poppins', sans-serif;
+    --cell-color: #ffffff;
+    --dark-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme{
+    --dark-blue: #ecf0f1; 
+    --light-blue: #2c3e50;
+    --game-bg: #34495e;
+    --dark-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+    --gray: #f5f5f5;
+    --font-color: #2c3e50;
+}
+
+.container{
+    width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    background-color: var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--primary-font);
+    overflow: hidden auto;
+}
+
+.game{
+    width: clamp(278px, 50%, 430px);
+    background-color: var(--game-bg);
+    padding: 1rem .6rem;
+    border-radius: .8rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: .8rem;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+    box-shadow: var(--dark-shadow);
+}
+
+.header{
+    grid-column: 1/span 3;
+    margin: 1.2rem 0;
+    color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+}
+
+.scoreboard{
+    padding: .5rem 1.2rem;
+    background-color: var(--dark-blue);
+    color: var(--font-color);
+    border-radius: .2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scoreboard h3{
+    font-weight: 300;
+}
+
+.X, .O{
+    font-size: .9rem;
+}
+
+.cell{
+    font-size: 1.4rem;
+    color: var(--cell-color);
+    background-color: var(--pink);
+    padding: .7rem;
+    display: table;
+    cursor: pointer;
+    width: 30px;
+    border-radius: .1rem;
+}
+
+.result{
+    padding: 1.2rem 0;
+    font-size: 1.2rem;
+}
+
+.result p{
+    opacity: .7;
+    color: var(--dark-blue);
+}
+
+.result button{
+    padding: .5rem 1.25rem;
+    border: 0;
+    background-color: var(--dark-blue);
+    color: var(--font-color);
+    cursor: pointer;
+    border-radius: .1rem;
+    font-family: var(--primary-font);
+    margin: .89rem 0;
+}
+
+.light, .dark{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    padding: 1rem;
+}
+
+.light svg, .dark svg{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    fill: var(--dark-blue);
+}

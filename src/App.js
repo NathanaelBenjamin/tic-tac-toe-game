@@ -8,13 +8,16 @@ const App = () => {
   const [cells, setCells] = useState(Array(9).fill(""));
   const [winner, setWinner] = useState();
   const [scores, setScores] = useState({X: 0, O: 0});
-  const [light, setMode] = useState(true); 
-
+  const [light, setMode] = useState(true);
+  
+  
+  //RESETING AFTER GAME OVER.
   const handleReset = () => {
     setWinner(null);
     setCells(Array(9).fill(""));
   }
 
+  //GETTING THE WINNER.
   const win = (box) => {
     let opportunities = {
       across: [[0, 1, 2], [3,4,5], [6,7,8]],
@@ -30,6 +33,7 @@ const App = () => {
 
         else if(box[pattern[0]] === box[pattern[1]] && box[pattern[1]] === box[pattern[2]]){
             setWinner(box[pattern[0]]);
+
             if(box[pattern[0]] === "X"){
               setScores((previousScore) => {
                 return {
@@ -37,8 +41,7 @@ const App = () => {
                   O: scores.O
                 }
               })
-
-              console.log(scores)
+              
             }
 
             else{
@@ -58,7 +61,10 @@ const App = () => {
     }
   }
 
+
+  //Handling the clicks on each cell.
   const handleClick = (num) =>{
+    
     if(cells[num]){
       alert("Already clicked!");
       return;
@@ -79,7 +85,9 @@ const App = () => {
     setCells(boxes)
   }
 
+  //Cell component
   const Cell = (props) => {
+
     return <div className='cell'
     onClick={() => {
       handleClick(props.num)
@@ -89,6 +97,7 @@ const App = () => {
     </div>
   }
 
+  //Toggle mode.
   const changeMode = () => {
     setMode(!light);
 
@@ -117,7 +126,7 @@ const App = () => {
     </div>
   }
 
-  
+  //Update scoreboard component.
   const ScoreBoard = () => {
     return <div className="scoreboard">
       <h3>Scoreboard</h3>

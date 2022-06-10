@@ -85,10 +85,12 @@
     font-size: 1.4rem;
     color: var(--cell-color);
     background-color: var(--pink);
-    padding: .7rem;
-    display: table;
     cursor: pointer;
-    width: 30px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: .1rem;
 }
 
